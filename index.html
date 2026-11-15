@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>زهري | شوف شكون كيتسناك</title>
+<style>
+*{box-sizing:border-box;font-family:system-ui,Arial}
+body{margin:0;background:#FFF3E8;color:#2D1A3A}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:1100px;margin:auto}
+.logo{font-size:28px;font-weight:900;color:#C84B9A}
+.btn{background:linear-gradient(90deg,#F06CB0,#8B5CF6);color:#fff;border:0;padding:14px 26px;border-radius:999px;font-size:18px;font-weight:800;cursor:pointer;width:100%}
+.card{max-width:480px;margin:20px auto;background:#fff;border-radius:28px;padding:28px;box-shadow:0 20px 50px rgba(0,0,0,.1);text-align:center}
+.hidden{display:none}
+input,select{width:100%;padding:15px;border:1px solid #E9D5D5;border-radius:16px;margin:8px 0;font-size:16px}
+.pill{display:inline-block;background:#FFF0E6;padding:10px 16px;border-radius:999px;margin:5px;cursor:pointer;border:2px solid transparent}
+.pill.active{border-color:#C84B9A;background:#FFE3F0}
+.avatar{width:140px;height:140px;border-radius:50%;margin:10px auto;background:linear-gradient(135deg,#C4B5FD,#F9A8D4);filter:blur(1px);display:flex;align-items:center;justify-content:center;font-size:60px}
+.profile-card{background:#FFF7F0;border-radius:24px;padding:20px;margin:15px 0}
+.actions{display:flex;gap:12px}
+.no{background:#eee;color:#333}.yes{background:#FF6FAE;color:#fff}
+.chat{text-align:right;background:#F3E9F5;padding:12px;border-radius:18px;margin:8px 0}
+.chat.me{background:#E9D5FF}
+.vip{background:linear-gradient(90deg,#FFE9A8,#FFC7E8);border-radius:20px;padding:16px;margin-top:16px}
+footer{text-align:center;padding:20px;color:#888;font-size:13px}
+</style>
+</head>
+<body>
+<header><div class="logo">زهري ✨</div><div>فاس | آمن | مجاني</div></header>
+
+<div id="s1" class="card">
+<h1>شوف شكون كيتسناك ❤️</h1>
+<p>صداقة ولا حب، بلا مجهول، مع ناس من مدينتك.</p>
+<button class="btn" onclick="show('s2')">بدا</button>
+<p>بلا تصاور حقيقية فـ البداية - آمن - مجاني</p>
+</div>
+
+<div id="s2" class="card hidden">
+<p>المرحلة 1 من 4</p><h2>شحال فعمرك؟</h2>
+<div id="ages"></div>
+<button class="btn" onclick="show('s3')">كمل</button>
+</div>
+
+<div id="s3" class="card hidden">
+<p>المرحلة 2 من 4</p><h2>شنو كتقلب؟</h2>
+<div><span class="pill" onclick="pick(this)">صداقة 🤝</span><span class="pill" onclick="pick(this)">حب ❤️</span><span class="pill" onclick="pick(this)">بجوجهم ✨</span></div><br>
+<button class="btn" onclick="show('s4')">كمل</button>
+</div>
+
+<div id="s4" class="card hidden">
+<p>المرحلة 3 من 4</p><h2>شنو سميتك و منين نتا؟</h2>
+<input id="name" placeholder="دخل سميتك هنا">
+<select><option>فاس</option><option>الدار البيضاء</option><option>الرباط</option><option>مراكش</option><option>طنجة</option><option>أكادير</option></select>
+<button class="btn" onclick="show('s5')">كمل</button>
+</div>
+
+<div id="s5" class="card hidden">
+<h2>زهري</h2>
+<div class="profile-card"><div class="avatar">👤</div><h3>سارة، 24 - فاس</h3><p>الاهتمامات: موسيقى 🎵 قهوة ☕ سفر ✈️</p></div>
+<div class="actions"><button class="btn no" onclick="alert('دزنا للي بعدو')">لا ✕</button><button class="btn yes" onclick="show('s6')">اه ❤️</button></div>
+</div>
+
+<div id="s6" class="card hidden">
+<h2>عندك ماتش جديد! 🎉</h2><p>تبان أنكم متناسبين بزاف 💜</p><div class="avatar">💜</div>
+<button class="btn" onclick="show('s7')">صيفط ميساج</button><br><br><a href="#" onclick="show('s8');return false">شوف البروفايل ديالو</a>
+</div>
+
+<div id="s7" class="card hidden">
+<h3>سارة - متصلة الآن 🟢</h3>
+<div class="chat">سلام، كيدايرة؟</div><div class="chat me">لاباس الحمد لله و نتا؟</div>
+<input id="msg" placeholder="كتب ميساج..."><button class="btn" onclick="send()">صيفط</button><br><br><button class="btn" style="background:#eee;color:#333" onclick="show('s8')">شوف البروفايل ديالي</button>
+</div>
+
+<div id="s8" class="card hidden">
+<h2>البروفايل ديالي</h2><div class="avatar">👤</div><h3 id="myName">يوسف، 26، فاس</h3><p>قهوة ☕ كورة ⚽ موسيقى 🎵</p>
+<button class="btn" style="background:#fff;color:#8B5CF6;border:1px solid #8B5CF6">بدل البروفايل ✏️</button>
+<div class="vip"><b>زهري VIP 👑</b><br>بان كتر و شوف شكون شافك<br><br><button class="btn" onclick="alert('مرحبا بيك فـ VIP!')">طلع VIP</button></div>
+</div>
+
+<footer>www.zahri.com - زهري © 2026 - الخصوصية محترمة</footer>
+<script>
+function show(id){document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0);let n=document.getElementById('name').value;if(n)document.getElementById('myName').innerText=n+', 26، فاس';}
+function pick(el){document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));el.classList.add('active');}
+let ages=document.getElementById('ages');for(let i=18;i<=40;i++){let s=document.createElement('span');s.className='pill';s.innerText=i;s.onclick=()=>pick(s);ages.appendChild(s);}
+function send(){let m=document.getElementById('msg');if(!m.value)return;let d=document.createElement('div');d.className='chat me';d.innerText=m.value;m.parentNode.insertBefore(d,m);m.value='';}
+</script>
+</body>
+</html>
